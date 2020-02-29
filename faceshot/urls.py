@@ -21,5 +21,6 @@ urlpatterns = [
     path('', include('home.urls')),
     path('login/', include('loginpage.urls')),
     path('register/', include('registerpage.urls')),
-    path('timeline/',include('timeline.urls'))
+    path('timeline/',include('timeline.urls')),
+    path('logout/',include('logout.urls')),
 ]

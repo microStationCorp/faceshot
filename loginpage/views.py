@@ -7,7 +7,9 @@ from django.contrib import messages
 
 
 def loginpage(response):
-    if response.method == 'POST':
+    if response.user.is_authenticated:
+        return redirect('../timeline')
+    elif response.method == 'POST':
         form = loginForm(response.POST)
         if form.is_valid():
             username = form.cleaned_data['username']

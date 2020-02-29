@@ -92,6 +92,16 @@
         </div>
     </nav>
 
+    <div class="container text-center">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+
     {% block homepage %}
     <div class="container text-center mt-5">
         <a href="../login" class="btn btn-info mt-5 mr-2" type="button" style="min-width: 120px;">Log in</a>

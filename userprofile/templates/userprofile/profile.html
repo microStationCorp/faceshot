@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block userprofilecss %}
+
+<style>
+    .container h1 {
+        color: thistle;
+    }
+
+    img.myimg {
+        border: 2px solid white;
+    }
+
+    img.icon {
+        width: 25px;
+        height: 25px;
+        transition-duration: .3s;
+    }
+
+    img.icon:hover {
+        transform: scale(2);
+        cursor: pointer;
+    }
+</style>
+
+{% endblock userprofilecss %}
+
+{% block base %}
+
+<div class="container">
+    <h1 class="text-center">{{user.username}}</h1>
+    <div class="img-container">
+        <div class="row">
+            {% for img in imgs %}
+            <div class="card m-2 col p-2 border-dark" style="min-width: 200px;">
+                <img class="card-img-top" src="{{img.image.url}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-text">{{img.caption}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <img class="icon" src="{% static 'image/fire.svg' %}" alt="fire">
+                    </li>
+                    <li class="list-group-item">
+                        <img class="icon" src="{% static 'image/poop.svg' %}" alt="shit">
+                    </li>
+                    <li class="list-group-item">
+                        <img class="icon" src="{% static 'image/haha.png' %}" alt="haha">
+                    </li>
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock base %}

@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from addphoto.models import UploadedPhoto
 
 # Create your views here.
 
 
 @login_required(login_url='../login')
 def userprofile(response):
-    print(response)
-    return render(response, 'userprofile/profile.html')
+    imgs = UploadedPhoto.objects.filter(uploader_id=response.user.id)
+    context = {
+        'imgs': imgs
+    }
+    return render(response, 'userprofile/profile.html', context)

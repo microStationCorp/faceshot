@@ -13,4 +13,4 @@ def get_image_path(instance, filename):
 class UploadedPhoto(models.Model):
     uploader = models.ForeignKey(User, on_delete=models.CASCADE)
     caption = models.CharField(max_length=140, blank=True, null=True)
-    image = ResizedImageField(size=[300,300],upload_to=get_image_path)
+    image = ResizedImageField(size=[500,500],upload_to=get_image_path)

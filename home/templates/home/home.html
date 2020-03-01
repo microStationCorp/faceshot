@@ -92,6 +92,8 @@
         </div>
     </nav>
 
+
+    {% block homepage %}
     <div class="container text-center">
         {% if messages %}
         {% for message in messages %}
@@ -101,8 +103,6 @@
         {% endfor %}
         {% endif %}
     </div>
-
-    {% block homepage %}
     <div class="container text-center mt-5">
         <a href="../login" class="btn btn-info mt-5 mr-2" type="button" style="min-width: 120px;">Log in</a>
         <a href="../register" class="btn btn-info mt-5" type="button" style="min-width: 120px;">Register</a>

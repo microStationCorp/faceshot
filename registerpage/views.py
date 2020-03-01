@@ -20,6 +20,10 @@ def registerpage(response):
             if pass1 != pass2:
                 messages.warning(response, 'password doesnot match')
                 return redirect('../register')
+            elif len(pass1) < 8:
+                messages.warning(
+                    response, 'password must contain atleast 8 letters')
+                return redirect('../register')
             elif User.objects.filter(email=email).exists():
                 messages.warning(response, 'Email-Id already exists')
                 return redirect('../register')

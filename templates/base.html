@@ -9,6 +9,40 @@
     <title>base</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/55decd08f0.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background: #0F2027;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        li a {
+            font-size: 1.5rem;
+            transition-duration: .3s;
+        }
+
+        li a i {
+            color: rgb(37, 156, 207);
+        }
+
+        li a:hover {
+            transform: scale(1.2);
+        }
+
+        nav h1 {
+            color: #4DCCFF;
+            transition-duration: .4s;
+        }
+
+        nav h1:hover {
+            cursor: pointer;
+            color: rgb(255, 255, 255);
+        }
+    </style>
 </head>
 
 <body>
@@ -19,21 +53,37 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-5">
-                <li class="nav-item">
-                    <a class="nav-link" href="../">
-                        <span>Home</span>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item px-2">
+                    <a class="nav-link" href="#" data-toggle="tooltip" data-placement="bottom"
+                        title="Profile">
+                        <i class="far fa-user-circle"></i>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <span>about</span>
+                <li class="nav-item px-2">
+                    <a class="nav-link" href="#" data-toggle="tooltip" data-placement="bottom"
+                    title="Timeline">
+                        <i class="fas fa-stream"></i>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="logout()">
-                        <span>logout</span>
+                <li class="nav-item px-2">
+                    <a class="nav-link" href="#" data-toggle="tooltip" data-placement="bottom"
+                    title="Poll">
+                        <i class="fas fa-poll"></i>
+                    </a>
+                </li>
+                <li class="nav-item px-2">
+                    <a class="nav-link" href="#" data-toggle="tooltip" data-placement="bottom"
+                    title="Add">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </li>
+                <li class="nav-item px-2">
+                    <a class="nav-link" href="#" onclick="logout()" data-toggle="tooltip" data-placement="left"
+                    title="Logout">
+                        <i class="fas fa-sign-out-alt"></i>
                     </a>
                 </li>
             </ul>

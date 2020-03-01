@@ -25,4 +25,7 @@ urlpatterns = [
     path('register/', include('registerpage.urls')),
     path('timeline/', include('timeline.urls')),
     path('logout/', include('logout.urls')),
+    path('addphoto/', include('addphoto.urls')),
+    path('poll/', include('poll.urls')),
+    path('profile/', include('userprofile.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

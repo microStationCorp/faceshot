@@ -29,12 +29,22 @@
 {% block base %}
 
 <div class="container">
+    <div>
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
     <h1 class="text-center">{{user.username}}</h1>
     <div class="img-container">
-        <div class="row">
+        <div class="row justify-content-center">
             {% for img in imgs %}
-            <div class="card m-2 col p-2 border-dark" style="min-width: 200px;">
-                <img class="card-img-top" src="{{img.image.url}}" alt="Card image cap">
+            <div class="card m-2 col-md-4 col-lg-3 p-2 border-dark" style="width: 10rem;">
+                <img class="card-img-top" src="{{img.image.url}}" alt="Card image cap" height="150px"
+                    style="border: 2px solid rgb(22, 97, 97);">
                 <div class="card-body">
                     <h5 class="card-text">{{img.caption}}</h5>
                 </div>

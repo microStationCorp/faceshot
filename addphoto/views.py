@@ -17,7 +17,7 @@ def addphoto(response):
             upload.uploader = response.user
             upload.save()
             messages.info(response, 'Succesfully Uploaded')
-            return redirect('../timeline')
+            return redirect('../profile')
         else:
             messages.warning(response, 'Invalid upload')
             print(form)

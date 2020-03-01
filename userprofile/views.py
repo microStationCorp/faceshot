@@ -7,7 +7,7 @@ from addphoto.models import UploadedPhoto
 
 @login_required(login_url='../login')
 def userprofile(response):
-    imgs = UploadedPhoto.objects.filter(uploader_id=response.user.id)
+    imgs = UploadedPhoto.objects.filter(uploader_id=response.user.id).order_by('-dateOfPost')
     context = {
         'imgs': imgs
     }

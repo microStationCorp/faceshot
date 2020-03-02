@@ -10,3 +10,7 @@ class extraUserData(models.Model):
         ('F', 'Female'),
     )
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    last_voted_pic_id=models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.user.username

@@ -3,5 +3,6 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('', views.timelinepage, name='timeline')
+    path('', views.timelinepage, name='timeline'),
+    path('vote/', views.voted, name='vote')
 ]

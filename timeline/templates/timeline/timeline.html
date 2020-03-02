@@ -18,18 +18,30 @@
 
 {% block base%}
 <div class="container justify-content-center">
-    <div class="card mx-auto col-lg-6 col-md-8 col-sm-12">
+    <div data-change="myDiv" class="card mx-auto col-lg-6 col-md-8 col-sm-12">
+        {% if empty %}
+        <h2>
+            nothing to show
+        </h2>
+        {% else %}
         <div class="card-body">
-            <img class="card-img-top"
-                src="../media/photos/1/Iron_Man_02_001_Thumbnail_0000.jpg70d8bb73-ff61-4520-8dca-56645b915b00Original.jpeg"
-                alt="Card image cap" style="border: 2px solid rgb(104, 66, 9);">
+            <img data-type="image" class="card-img-top" src="{{img.image.url}}" alt="Card image cap"
+                style="border: 2px solid rgb(104, 66, 9);">
             <h5 class="card-title m-2">Special title treatment</h5>
         </div>
-        <div class="row justify-content-center m-3">
-            <div class="col-4"><img class="icon mx-auto d-block" src="{% static 'image/fire.svg' %}" alt="fire"></div>
-            <div class="col-4"><img class="icon mx-auto d-block" src="{% static 'image/poop.svg' %}" alt="shit"></div>
-            <div class="col-4"><img class="icon mx-auto d-block" src="{% static 'image/haha.png' %}" alt="haha"></div>
+        <div class="row justify-content-center m-3" data-imageid="{{img.id}}">
+            <div class="col-4"><img data-id="fire" class="icon mx-auto d-block" src="{% static 'image/fire.svg' %}"
+                    alt="fire"></div>
+            <div class="col-4"><img data-id="poop" class="icon mx-auto d-block" src="{% static 'image/poop.svg' %}"
+                    alt="shit"></div>
+            <div class="col-4"><img data-id="haha" class="icon mx-auto d-block" src="{% static 'image/haha.png' %}"
+                    alt="haha"></div>
         </div>
+        {% endif %}
     </div>
 </div>
 {% endblock base%}
+
+{% block timelinejs %}
+<script src="{% static 'js/timeline.js' %}"></script>
+{% endblock timelinejs %}

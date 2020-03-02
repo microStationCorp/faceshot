@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}
+Profile
+{% endblock title %}
+
 {% block userprofilecss %}
 
 <style>
@@ -22,6 +26,20 @@
         transform: scale(2);
         cursor: pointer;
     }
+
+    h6#email {
+        color: beige;
+    }
+
+    div#photo_head {
+        font-size: 20px;
+        color: burlywood;
+        text-align: center;
+    }
+
+    hr.myHr {
+        border: 1px solid white;
+    }
 </style>
 
 {% endblock userprofilecss %}
@@ -39,6 +57,9 @@
         {% endif %}
     </div>
     <h1 class="text-center">{{user.username}}</h1>
+    <h6 id='email' class="text-center">{{user.email}}</h6>
+    <div id="photo_head">Photos</div>
+    <hr class="myHr">
     <div class="img-container">
         <div class="row justify-content-center">
             {% for img in imgs %}
@@ -51,12 +72,15 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <img class="icon" src="{% static 'image/fire.svg' %}" alt="fire">
+                        <span class="ml-4">{{img.fire_count}}</span>
                     </li>
                     <li class="list-group-item">
                         <img class="icon" src="{% static 'image/poop.svg' %}" alt="shit">
+                        <span class="ml-4">{{img.poop_count}}</span>
                     </li>
                     <li class="list-group-item">
                         <img class="icon" src="{% static 'image/haha.png' %}" alt="haha">
+                        <span class="ml-4">{{img.haha_count}}</span>
                     </li>
                 </ul>
             </div>

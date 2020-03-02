@@ -1,5 +1,9 @@
 {% extends 'home/home.html' %}
 
+{% block title %}
+login
+{% endblock title %}
+
 {% load crispy_forms_tags %}
 {% block homepage %}
 <div class="container">
@@ -24,7 +28,7 @@
                 {{ form|crispy }}
                 <div class="text-center">
                     <input class="btn btn-primary " type="submit" value="Log In" style="min-width: 100px;"><br>
-                    <small>New in Xpost ? <a href="../register">Register</a></small>
+                    <small>New in Faceshot ? <a href="../register">Register</a></small>
                 </div>
             </form>
         </div>

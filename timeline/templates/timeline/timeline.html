@@ -1,4 +1,8 @@
 {% extends 'base.html'%}
+
+{% block title %}
+Timeline
+{% endblock title %}
 {% load static %}
 
 {% block timelinecss %}
@@ -20,9 +24,9 @@
 <div class="container justify-content-center">
     <div data-change="myDiv" class="card mx-auto col-lg-6 col-md-8 col-sm-12">
         {% if empty %}
-        <h2>
-            nothing to show
-        </h2>
+        <div class="card-body">
+            <div class="card-text text-center h5">Nothing to Show</div>
+        </div>
         {% else %}
         <div class="card-body">
             <img data-type="image" class="card-img-top" src="{{img.image.url}}" alt="Card image cap"

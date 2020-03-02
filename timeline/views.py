@@ -11,7 +11,7 @@ from django.http import HttpResponse, JsonResponse
 def get_image(User_id, user_last_voted_pic_id):
     empty_flag = True
     user_last_voted_pic_id += 1
-    while user_last_voted_pic_id < UploadedPhoto.objects.all().last().id:
+    while user_last_voted_pic_id <= UploadedPhoto.objects.all().last().id:
         if UploadedPhoto.objects.filter(id=user_last_voted_pic_id).count() != 0 and UploadedPhoto.objects.get(id=user_last_voted_pic_id).uploader_id != User_id:
             empty_flag = False
             break

@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block base %}
+<div class="container rounded" style="background-color: aqua;">
+    <span style="font-size: 18px;">Choose Rank Option :</span>
+    <select data-sel="select_opt" class="custom-select m-2 text-end" id="inputGroupSelect01" style="width: 200px;">
+        <option value="None" selected>Choose...</option>
+        <option value="RF">Rank as Fire</option>
+        <option value="RP">Rank as Poop</option>
+        <option value="RH">Rank as Haha</option>
+    </select>
+    <hr>
+    <div id="ranked_image_continer" class="mt-4">
+
+        <div class="row justify-content-center">
+            <div class="card m-2 col-md-4 col-lg-3 p-2 border-dark" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/0_c9S8ajFBpwX89ZuU.0.jpeg' %}" alt="Card image cap"
+                    height="150px" style="border: 2px solid rgb(22, 97, 97);">
+                <div class="card-body">
+                    <h5 class="card-text">it is image</h5>
+                </div>
+                <div class="card-text">Rank : </div>
+            </div>
+            <div class="card m-2 col-md-4 col-lg-3 p-2 border-dark" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/0_c9S8ajFBpwX89ZuU.0.jpeg' %}" alt="Card image cap"
+                    height="150px" style="border: 2px solid rgb(22, 97, 97);">
+                <div class="card-body">
+                    <h5 class="card-text">it is image</h5>
+                </div>
+            </div>
+            <div class="card m-2 col-md-4 col-lg-3 p-2 border-dark" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/0_c9S8ajFBpwX89ZuU.0.jpeg' %}" alt="Card image cap"
+                    height="150px" style="border: 2px solid rgb(22, 97, 97);">
+                <div class="card-body">
+                    <h5 class="card-text">it is image</h5>
+                </div>
+            </div>
+            <div class="card m-2 col-md-4 col-lg-3 p-2 border-dark" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/0_c9S8ajFBpwX89ZuU.0.jpeg' %}" alt="Card image cap"
+                    height="150px" style="border: 2px solid rgb(22, 97, 97);">
+                <div class="card-body">
+                    <h5 class="card-text">it is image</h5>
+                </div>
+            </div>
+            <div class="card m-2 col-md-4 col-lg-3 p-2 border-dark" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/0_c9S8ajFBpwX89ZuU.0.jpeg' %}" alt="Card image cap"
+                    height="150px" style="border: 2px solid rgb(22, 97, 97);">
+                <div class="card-body">
+                    <h5 class="card-text">it is image</h5>
+                </div>
+            </div>
+            <div class="card m-2 col-md-4 col-lg-3 p-2 border-dark" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/0_c9S8ajFBpwX89ZuU.0.jpeg' %}" alt="Card image cap"
+                    height="150px" style="border: 2px solid rgb(22, 97, 97);">
+                <div class="card-body">
+                    <h5 class="card-text">it is image</h5>
+                </div>
+            </div>
+            <div class="card m-2 col-md-4 col-lg-3 p-2 border-dark" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/0_c9S8ajFBpwX89ZuU.0.jpeg' %}" alt="Card image cap"
+                    height="150px" style="border: 2px solid rgb(22, 97, 97);">
+                <div class="card-body">
+                    <h5 class="card-text">it is image</h5>
+                </div>
+            </div>
+            <div class="card m-2 col-md-4 col-lg-3 p-2 border-dark" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/0_c9S8ajFBpwX89ZuU.0.jpeg' %}" alt="Card image cap"
+                    height="150px" style="border: 2px solid rgb(22, 97, 97);">
+                <div class="card-body">
+                    <h5 class="card-text">it is image</h5>
+                </div>
+            </div>
+            <div class="card m-2 col-md-4 col-lg-3 p-2 border-dark" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/0_c9S8ajFBpwX89ZuU.0.jpeg' %}" alt="Card image cap"
+                    height="150px" style="border: 2px solid rgb(22, 97, 97);">
+                <div class="card-body">
+                    <h5 class="card-text">it is image</h5>
+                </div>
+            </div>
+            <div class="card m-2 col-md-4 col-lg-3 p-2 border-dark" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/0_c9S8ajFBpwX89ZuU.0.jpeg' %}" alt="Card image cap"
+                    height="150px" style="border: 2px solid rgb(22, 97, 97);">
+                <div class="card-body">
+                    <h5 class="card-text">it is image</h5>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock base %}
+
+{% block polljs %}
+<script src="{% static 'js/poll.js' %}"></script>
+{% endblock polljs %}

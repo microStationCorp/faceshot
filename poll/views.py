@@ -13,8 +13,9 @@ def poll(response):
 
 @login_required(login_url='../login')
 def pollAjax(response):
-    if response.method == "GET" and response.is_ajax():
-        order_category = response.GET['rank_order_name']
+    print('in ajax call')
+    if response.method == "POST" and response.is_ajax():
+        order_category = response.POST['rank_order_name']
         context = []
         if order_category == 'RF':
             for f in UploadedPhoto.objects.all().order_by('-fire_count')[:5]:

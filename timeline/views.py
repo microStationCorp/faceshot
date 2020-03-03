@@ -4,7 +4,6 @@ from registerpage.models import extraUserData
 from django.contrib.auth.models import User
 from addphoto.models import UploadedPhoto
 from django.http import HttpResponse, JsonResponse
-
 # Create your views here.
 
 
@@ -39,19 +38,19 @@ def timelinepage(response):
 
 @login_required(login_url='../login')
 def voted(response):
-    if response.method == "GET" and response.is_ajax():
+    if response.method == "POST" and response.is_ajax():
         user = User.objects.get(id=response.user.id)
         user_data = extraUserData.objects.get(user=user)
-        user_data.last_voted_pic_id = int(response.GET['image_id'])
+        user_data.last_voted_pic_id = int(response.POST['image_id'])
         user_data.save()
 
-        img_id = int(response.GET['image_id'])
+        img_id = int(response.POST['image_id'])
         reacted_img = UploadedPhoto.objects.get(id=img_id)
-        if response.GET['reaction'] == 'haha':
+        if response.POST['reaction'] == 'haha':
             reacted_img.haha_count += 1
-        elif response.GET['reaction'] == 'fire':
+        elif response.POST['reaction'] == 'fire':
             reacted_img.fire_count += 1
-        elif response.GET['reaction'] == 'poop':
+        elif response.POST['reaction'] == 'poop':
             reacted_img.poop_count += 1
         reacted_img.save()
 

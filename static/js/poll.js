@@ -22,6 +22,18 @@ $(document).ready(function () {
         var myHtml = '<div class="row justify-content-center">'
         var csrftoken = getCookie('csrftoken');
 
+        if (rank_order_name == 'RF') {
+            $('#react_logo').html(`<img src='../static/image/fire.svg'></img>`)
+        }
+        else if (rank_order_name == 'RH') {
+            $('#react_logo').html(`<img src='../static/image/haha.png'></img>`)
+        }
+        else if (rank_order_name == 'RP') {
+            $('#react_logo').html(`<img src='../static/image/poop.svg'></img>`)
+        } else {
+            $('#react_logo').html(``)
+        }
+
         if (rank_order_name != 'None') {
             $.ajax({
                 url: '../poll/pollajax',
@@ -38,9 +50,9 @@ $(document).ready(function () {
                         <img class="card-img-top" src="${img.url}" alt="Card image cap"
                         height="150px" style="border: 2px solid rgb(22, 97, 97);">
                         <div class="card-body">
-                        <h5 class="card-text">${img.caption}</h5>
+                        <h5 id='myCap' class="card-text">${img.caption}</h5>
                         </div>
-                        <div class="card-text text-muted">Uploader : ${img.uploader} </div>
+                        <div id='myUp' class="card-text text-muted">Uploader : ${img.uploader} </div>
                         <div class="card-text">Rank : ${sl} </div>
                         <div class="card-text">Value : ${img.count}</div>
                         </div>

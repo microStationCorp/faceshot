@@ -20,7 +20,6 @@ def addphoto(response):
             return redirect('../profile')
         else:
             messages.warning(response, 'Invalid upload')
-            print(form)
             return redirect('../addphoto')
     else:
         form = uploadPhotoForm()

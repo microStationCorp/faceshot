@@ -8,8 +8,12 @@ Profile
 {% block userprofilecss %}
 
 <style>
+    @import url('https://fonts.googleapis.com/css?family=Spartan&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Oxanium&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
     .container h1 {
         color: thistle;
+        font-family: 'Spartan' ;
     }
 
     img.myimg {
@@ -29,6 +33,7 @@ Profile
 
     h6#email {
         color: beige;
+        font-family: 'Oxanium' ;
     }
 
     div#photo_head {
@@ -39,6 +44,9 @@ Profile
 
     hr.myHr {
         border: 1px solid white;
+    }
+    h5#myCap{
+        font-family: 'Montserrat' ;
     }
 </style>
 
@@ -56,7 +64,7 @@ Profile
         {% endfor %}
         {% endif %}
     </div>
-    <h1 class="text-center">{{user.username}}</h1>
+    <h1 class="text-center">{{user.username|capfirst}}</h1>
     <h6 id='email' class="text-center">{{user.email}}</h6>
     <div id="photo_head">Photos</div>
     <hr class="myHr">
@@ -67,7 +75,7 @@ Profile
                 <img class="card-img-top" src="{{img.image.url}}" alt="Card image cap" height="150px"
                     style="border: 2px solid rgb(22, 97, 97);">
                 <div class="card-body">
-                    <h5 class="card-text">{{img.caption}}</h5>
+                    <h5 id='myCap' class="card-text">{{img.caption}}</h5>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">

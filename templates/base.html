@@ -14,6 +14,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/55decd08f0.js" crossorigin="anonymous"></script>
     <style>
+       @import url('https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope&display=swap');
         body {
             background: #0F2027;
             /* fallback for old browsers */
@@ -37,8 +38,11 @@
         }
 
         nav h1 {
+            position: relative;
             color: #4DCCFF;
             transition-duration: .4s;
+            font-family: 'Annie Use Your Telescope' ;
+            font-size: 4rem;
         }
 
         nav h1:hover {
@@ -50,6 +54,8 @@
     {% endblock userprofilecss %}
     {% block timelinecss %}
     {% endblock timelinecss %}
+    {% block pollcss %}
+    {% endblock pollcss %}
 </head>
 
 <body>

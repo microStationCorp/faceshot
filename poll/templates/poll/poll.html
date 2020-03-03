@@ -6,6 +6,27 @@ Poll
 
 {% load static %}
 
+{% block pollcss %}
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Oxanium&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+    h5#myCap {
+        font-family: 'Montserrat';
+    }
+
+    div#myUp {
+        font-family: 'Oxanium';
+    }
+    #react_logo img{
+        width: 30px;
+        height: 30px;
+    }
+</style>
+
+{% endblock pollcss %}
+
 {% block base %}
 <div class="container rounded" style="background-color: aqua;">
     <span style="font-size: 18px;">Choose Rank Option :</span>
@@ -15,6 +36,7 @@ Poll
         <option value="RP">Rank as Poop</option>
         <option value="RH">Rank as Haha</option>
     </select>
+    <span id="react_logo"></span>
     <hr>
     <div id="ranked_image_continer">
         <div class="card">
@@ -26,23 +48,6 @@ Poll
         </div>
     </div>
     <br>
-    <!-- <div id="ranked_image_continer" class="mt-4">
-
-        <div class="row justify-content-center">
-
-            <div class="card m-2 col-md-4 col-lg-3 p-2 border-dark" style="width: 10rem;">
-                <img class="card-img-top" src="{% static 'image/0_c9S8ajFBpwX89ZuU.0.jpeg' %}" alt="Card image cap"
-                    height="150px" style="border: 2px solid rgb(22, 97, 97);">
-                <div class="card-body">
-                    <h5 class="card-text">it is image</h5>
-                </div>
-                <div class="card-text">Rank : </div>
-                <div class="card-text">Value : </div>
-            </div>
-
-        </div>
-
-    </div> -->
 </div>
 {% endblock base %}
 

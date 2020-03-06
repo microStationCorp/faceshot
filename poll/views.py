@@ -20,7 +20,7 @@ def pollAjax(response):
             for f in UploadedPhoto.objects.all().order_by('-fire_count')[:5]:
                 context.append({
                     'url': f.image.url,
-                    'count': f.fire_count,
+                    'count': f.fire_count.all().count(),
                     'caption': f.caption,
                     'uploader': f.uploader.username
                 })
@@ -28,7 +28,7 @@ def pollAjax(response):
             for f in UploadedPhoto.objects.all().order_by('-haha_count')[:5]:
                 context.append({
                     'url': f.image.url,
-                    'count': f.haha_count,
+                    'count': f.haha_count.all().count(),
                     'caption': f.caption,
                     'uploader': f.uploader.username
                 })
@@ -36,7 +36,7 @@ def pollAjax(response):
             for f in UploadedPhoto.objects.all().order_by('-poop_count')[:5]:
                 context.append({
                     'url': f.image.url,
-                    'count': f.poop_count,
+                    'count': f.poop_count.all().count(),
                     'caption': f.caption,
                     'uploader': f.uploader.username
                 })

@@ -34,15 +34,19 @@ def voted(response):
         reacted_img = up.objects.get(id=img_id)
         if response.POST['reaction'] == 'haha':
             reacted_img.haha_count.add(user)
+            reacted_img.hahaStat = reacted_img.haha_count.all().count()
+            reacted_img.save()
         elif response.POST['reaction'] == 'fire':
             reacted_img.fire_count.add(user)
+            reacted_img.fireStat = reacted_img.fire_count.all().count()
+            reacted_img.save()
         elif response.POST['reaction'] == 'poop':
             reacted_img.poop_count.add(user)
+            reacted_img.poopStat = reacted_img.poop_count.all().count()
+            reacted_img.save()
 
-        other_user_img = up.objects.exclude(
-            Q(uploader__id=response.user.id) | Q(haha_count__id=response.user.id) | Q(
-                fire_count__id=response.user.id) | Q(
-                poop_count__id=response.user.id)).order_by('dateOfPost')
+        other_user_img = up.objects.exclude(Q(uploader__id=response.user.id) | Q(haha_count__id=response.user.id) | Q(
+            fire_count__id=response.user.id) | Q(poop_count__id=response.user.id)).order_by('dateOfPost')
 
         if other_user_img.count() != 0:
             context = {

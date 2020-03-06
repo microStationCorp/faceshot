@@ -17,7 +17,7 @@ def pollAjax(response):
         order_category = response.POST['rank_order_name']
         context = []
         if order_category == 'RF':
-            for f in UploadedPhoto.objects.all().order_by('-fire_count')[:5]:
+            for f in UploadedPhoto.objects.all().order_by('-fireStat')[:5]:
                 context.append({
                     'url': f.image.url,
                     'count': f.fire_count.all().count(),
@@ -25,7 +25,7 @@ def pollAjax(response):
                     'uploader': f.uploader.username
                 })
         elif order_category == 'RH':
-            for f in UploadedPhoto.objects.all().order_by('-haha_count')[:5]:
+            for f in UploadedPhoto.objects.all().order_by('-hahaStat')[:5]:
                 context.append({
                     'url': f.image.url,
                     'count': f.haha_count.all().count(),
@@ -33,7 +33,7 @@ def pollAjax(response):
                     'uploader': f.uploader.username
                 })
         elif order_category == 'RP':
-            for f in UploadedPhoto.objects.all().order_by('-poop_count')[:5]:
+            for f in UploadedPhoto.objects.all().order_by('-poopStat')[:5]:
                 context.append({
                     'url': f.image.url,
                     'count': f.poop_count.all().count(),

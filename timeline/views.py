@@ -44,13 +44,14 @@ def voted(response):
                 fire_count__id=response.user.id) | Q(
                 poop_count__id=response.user.id)).order_by('dateOfPost')
 
-        if other_user_img.count() == 0:
+        if other_user_img.count() != 0:
             context = {
-                'empty': True
+                'url': other_user_img[0].image.url,
+                'image_id': other_user_img[0].id
             }
         else:
             context = {
-                'img': other_user_img[0]
+                'url': 'None'
             }
         return JsonResponse(context)
     else:

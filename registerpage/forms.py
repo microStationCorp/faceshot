@@ -10,9 +10,6 @@ class registerForm(forms.Form):
         widget=forms.PasswordInput, label='New Password')
     password2 = forms.CharField(
         widget=forms.PasswordInput, label='Confirm Password')
-    CHOICES=[('M','Male'),
-         ('F','Female')]
-    Gender = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)
 
 
     def __init__(self, *args, **kwargs):
@@ -21,7 +18,6 @@ class registerForm(forms.Form):
         self.helper.layout = Layout(
             'username',
             'email',
-            'Gender',
             Row(
                 Column('password1', css_class='form-group col-md-6 mb-0'),
                 Column('password2', css_class='form-group col-md-6 mb-0'),

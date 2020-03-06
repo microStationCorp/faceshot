@@ -35,37 +35,37 @@ $(document).ready(function () {
         }
 
         if (rank_order_name != 'None') {
-            $.ajax({
-                url: '../poll/pollajax',
-                type: 'POST',
-                data: {
-                    'rank_order_name': rank_order_name,
-                },
-                headers: { "X-CSRFToken": csrftoken },
-                success: function (data) {
-                    sl = 1
-                    for (var img of data) {
-                        myHtml = myHtml + `
-                        <div class="card m-2 col-md-4 col-lg-3 p-2 border-dark" style="width: 10rem;">
-                        <img class="card-img-top" src="${img.url}" alt="Card image cap"
-                        height="150px" style="border: 2px solid rgb(22, 97, 97);">
-                        <div class="card-body">
-                        <h5 id='myCap' class="card-text">${img.caption}</h5>
-                        </div>
-                        <div id='myUp' class="card-text text-muted">Uploader : ${img.uploader} </div>
-                        <div class="card-text">Rank : ${sl} </div>
-                        <div class="card-text">Value : ${img.count}</div>
-                        </div>
-                        `
-                        sl++
-                    }
-                    myHtml = myHtml + '</div>'
-                    $('#ranked_image_continer').html(myHtml)
-                },
-                error: function (error) {
-                    console.log(error)
-                }
-            })
+            // $.ajax({
+            //     url: '../poll/pollajax',
+            //     type: 'POST',
+            //     data: {
+            //         'rank_order_name': rank_order_name,
+            //     },
+            //     headers: { "X-CSRFToken": csrftoken },
+            //     success: function (data) {
+            //         sl = 1
+            //         for (var img of data) {
+            //             myHtml = myHtml + `
+            //             <div class="card m-2 col-md-4 col-lg-3 p-2 border-dark" style="width: 10rem;">
+            //             <img class="card-img-top" src="${img.url}" alt="Card image cap"
+            //             height="150px" style="border: 2px solid rgb(22, 97, 97);">
+            //             <div class="card-body">
+            //             <h5 id='myCap' class="card-text">${img.caption}</h5>
+            //             </div>
+            //             <div id='myUp' class="card-text text-muted">Uploader : ${img.uploader} </div>
+            //             <div class="card-text">Rank : ${sl} </div>
+            //             <div class="card-text">Value : ${img.count}</div>
+            //             </div>
+            //             `
+            //             sl++
+            //         }
+            //         myHtml = myHtml + '</div>'
+            //         $('#ranked_image_continer').html(myHtml)
+            //     },
+            //     error: function (error) {
+            //         console.log(error)
+            //     }
+            // })
         }
 
     })

@@ -17,6 +17,6 @@ class UploadedPhoto(models.Model):
     uploader = models.ForeignKey(User, on_delete=models.CASCADE)
     caption = models.CharField(max_length=140, blank=True, null=True)
     image = ResizedImageField(size=[500, 500], upload_to=get_image_path)
+    haha_count = models.ManyToManyField(User, related_name="haha_count", blank=True)
     fire_count = models.ManyToManyField(User, related_name="fire_count", blank=True)
     poop_count = models.ManyToManyField(User, related_name="poop_count", blank=True)
-    haha_count = models.ManyToManyField(User, related_name="haha_count", blank=True)

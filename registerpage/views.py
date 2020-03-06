@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import registerForm
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .models import extraUserData
+
 
 # Create your views here.
 
@@ -31,10 +31,8 @@ def registerpage(response):
                 messages.warning(response, 'Username already exists')
                 return redirect('../register')
             else:
-                user = User.objects.create_user(
+                User.objects.create_user(
                     username=username, password=pass1, email=email)
-                extraUserData.objects.create(
-                    user=user, gender=form.cleaned_data['Gender'])
                 messages.info(response, 'Succesfully registered')
                 return redirect('../login')
         else:
@@ -43,7 +41,6 @@ def registerpage(response):
     else:
         form = registerForm()
     return render(response, 'registerpage/register.html', {'form': form})
-
 
 # Create your views here.
 # def registerpage(response):

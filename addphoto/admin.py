@@ -8,9 +8,6 @@ class UploadAdmin(ModelAdmin):
     list_display = [
         "caption",
         "dateOfPost",
-        "fire_count",
-        "poop_count",
-        "haha_count"]
-
+    ]
 
 admin.site.register(UploadedPhoto, UploadAdmin)

@@ -22,23 +22,23 @@ $(document).ready(function () {
         var source = $('[data-type=image]').attr('src')
         var csrftoken = getCookie('csrftoken');
 
-        $.ajax({
-            url: '../timeline/vote',
-            type: 'POST',
-            data: {
-                'reaction': reaction,
-                'image_id': image_id,
-            }, headers: { "X-CSRFToken": csrftoken },
-            success: function (data) {
-                if (data.url == 'None') {
-                    $('[data-change=myDiv]').html(`<h2>nothing to show</h2>`)
-                } else {
-                    $('[data-imageid]').attr('data-imageid', data.image_id)
-                    $('[data-type=image]').attr('src', data.url)
-                }
-            }, error: function () {
-                console.log('error')
-            }
-        })
+        // $.ajax({
+        //     url: '../timeline/vote',
+        //     type: 'POST',
+        //     data: {
+        //         'reaction': reaction,
+        //         'image_id': image_id,
+        //     }, headers: { "X-CSRFToken": csrftoken },
+        //     success: function (data) {
+        //         if (data.url == 'None') {
+        //             $('[data-change=myDiv]').html(`<h2>nothing to show</h2>`)
+        //         } else {
+        //             $('[data-imageid]').attr('data-imageid', data.image_id)
+        //             $('[data-type=image]').attr('src', data.url)
+        //         }
+        //     }, error: function () {
+        //         console.log('error')
+        //     }
+        // })
     })
 })

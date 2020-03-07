@@ -3,53 +3,42 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, JsonResponse
 from addphoto.models import UploadedPhoto
 
+
 # Create your views here.
 
 
 @login_required(login_url='../login')
 def poll(response):
-    return render(response, 'poll/poll.html')
+    hahaList = []
+    poopList = []
+    fireList = []
 
+    for f in UploadedPhoto.objects.all().order_by('-hahaStat')[:10]:
+        hahaList.append({
+            'url': f.image.url,
+            'count': f.haha_count.all().count(),
+            'caption': f.caption,
+            'uploader': f.uploader.username
+        })
+    for f in UploadedPhoto.objects.all().order_by('-fireStat')[:10]:
+        fireList.append({
+            'url': f.image.url,
+            'count': f.fire_count.all().count(),
+            'caption': f.caption,
+            'uploader': f.uploader.username
+        })
+    for f in UploadedPhoto.objects.all().order_by('-poopStat')[:10]:
+        poopList.append({
+            'url': f.image.url,
+            'count': f.poop_count.all().count(),
+            'caption': f.caption,
+            'uploader': f.uploader.username
+        })
 
-@login_required(login_url='../login')
-def pollAjax(response):
-    if response.method == "POST" and response.is_ajax():
-        order_category = response.POST['rank_order_name']
-        context = []
-        if order_category == 'RF':
-            for f in UploadedPhoto.objects.all().order_by('-fireStat')[:5]:
-                context.append({
-                    'url': f.image.url,
-                    'count': f.fire_count.all().count(),
-                    'caption': f.caption,
-                    'uploader': f.uploader.username
-                })
-        elif order_category == 'RH':
-            for f in UploadedPhoto.objects.all().order_by('-hahaStat')[:5]:
-                context.append({
-                    'url': f.image.url,
-                    'count': f.haha_count.all().count(),
-                    'caption': f.caption,
-                    'uploader': f.uploader.username
-                })
-        elif order_category == 'RP':
-            for f in UploadedPhoto.objects.all().order_by('-poopStat')[:5]:
-                context.append({
-                    'url': f.image.url,
-                    'count': f.poop_count.all().count(),
-                    'caption': f.caption,
-                    'uploader': f.uploader.username
-                })
-        return JsonResponse(context, safe=False)
-    else:
-        return HttpResponse('''<h1 style="border-bottom: 1px solid #aaa; padding: 10px" > Not Found(  # 404)</h1>
+    context = {
+        'haha': hahaList,
+        'poop': poopList,
+        'fire': fireList
+    }
+    return render(response, 'poll/poll.html', context)
 
-    <div class="alert alert-danger" >
-        Page not found. </div >
-
-    <p>
-        The above error occurred while the Web server was processing your request.
-    </p>
-    <p>
-        Please contact us if you think this is a server error. Thank you.
-    </p>''')

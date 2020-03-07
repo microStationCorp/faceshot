@@ -19,38 +19,70 @@ Poll
     div#myUp {
         font-family: 'Oxanium';
     }
-    #react_logo img{
+
+    #react_logo img {
         width: 30px;
         height: 30px;
+    }
+    hr.division{
+        border: 1px solid rgb(3, 52, 80);
     }
 </style>
 
 {% endblock pollcss %}
 
 {% block base %}
-<div class="container rounded" style="background-color: aqua;">
-    <span style="font-size: 18px;">Choose Rank Option :</span>
-    <select data-sel="select_opt" class="custom-select m-2 text-end" id="inputGroupSelect01" style="width: 200px;">
-        <option value="None" selected>Choose...</option>
-        <option value="RF">Rank as Fire</option>
-        <option value="RP">Rank as Poop</option>
-        <option value="RH">Rank as Haha</option>
-    </select>
-    <span id="react_logo"></span>
-    <hr>
-    <div id="ranked_image_continer">
-        <div class="card">
-            <div class="card-body">
-                <div class="card-text text-center">
-                    <h4 class="text-center">Please Select an Option</h4>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col m-2 rounded" style="background: aqua;">
+            <div class="card-text text-center m-1" style="font-weight: bold;">HAHA RANK</div>
+            {% for h in haha %}
+            <hr class="division">
+            <div class="card mx-auto my-2 border-dark p-2 w-75">
+                <img class="card-img-top" src="{{h.url}}" alt="Card image cap" height="150px"
+                    style="border: 2px solid rgb(22, 97, 97);">
+                <div class="card-body">
+                    <h5 id='myCap' class="card-text">{{h.caption}}</h5>
                 </div>
+                <div id='myUp' class="card-text text-muted">Uploader : {{h.uploader}} </div>
+                <div class="card-text">Rank : {{forloop.counter}} </div>
+                <div class="card-text">Value : {{h.count}}</div>
             </div>
+            {% endfor %}
+        </div>
+        <div class="col m-2 rounded" style="background: aqua;">
+            <div class="card-text text-center m-1" style="font-weight: bold;">FIRE RANK</div>
+            {% for f in fire %}
+            <hr class="division">
+            <div class="card mx-auto my-2 border-dark p-2 w-75">
+                <img class="card-img-top" src="{{f.url}}" alt="Card image cap" height="150px"
+                    style="border: 2px solid rgb(22, 97, 97);">
+                <div class="card-body">
+                    <h5 id='myCap' class="card-text">{{f.caption}}</h5>
+                </div>
+                <div id='myUp' class="card-text text-muted">Uploader : {{f.uploader}} </div>
+                <div class="card-text">Rank : {{forloop.counter}} </div>
+                <div class="card-text">Value : {{f.count}}</div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col m-2 rounded" style="background: aqua;">
+            <div class="card-text text-center m-1" style="font-weight: bold;">POOP COUNT</div>
+            {% for p in poop %}
+            <hr class="division">
+            <div class="card mx-auto my-2 border-dark p-2 w-75">
+                <img class="card-img-top" src="{{p.url}}" alt="Card image cap" height="150px"
+                    style="border: 2px solid rgb(22, 97, 97);">
+                <div class="card-body">
+                    <h5 id='myCap' class="card-text">{{p.caption}}</h5>
+                </div>
+                <div id='myUp' class="card-text text-muted">Uploader : {{p.uploader}} </div>
+                <div class="card-text">Rank : {{forloop.counter}} </div>
+                <div class="card-text">Value : {{p.count}}</div>
+            </div>
+            {% endfor %}
         </div>
     </div>
-    <br>
 </div>
 {% endblock base %}
 
-{% block polljs %}
-<script src="{% static 'js/poll.js' %}"></script>
-{% endblock polljs %}

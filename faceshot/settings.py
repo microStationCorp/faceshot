@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'loginpage.apps.LoginpageConfig',
     'crispy_forms',
     'timeline.apps.TimelineConfig',
-    'registerpage.apps.RegisterpageConfig'
+    'registerpage.apps.RegisterpageConfig',
 ]
 
 MIDDLEWARE = [

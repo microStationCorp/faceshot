@@ -8,10 +8,10 @@ from django.utils import timezone
 # Create your models here.
 
 class Seasons(models.Model):
-    name = models.CharField(max_length=10)
+    season_number = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.name
+        return self.season_number
 
 def get_image_path(instance, filename):
     return os.path.join('photos', str(instance.uploader.id), filename)

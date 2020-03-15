@@ -29,17 +29,22 @@ Timeline
         </div>
         {% else %}
         <div class="card-body">
+            <h5 class="card-title m-2">{{img.caption|capfirst}}</h5>
             <img data-type="image" class="card-img-top" src="{{img.image.url}}" alt="Card image cap"
                 style="border: 2px solid rgb(104, 66, 9);">
-            <h5 class="card-title m-2">{{img.caption}}</h5>
         </div>
-        <div class="row justify-content-center m-3" data-imageid="{{img.id}}">
-            <div class="col-4"><img data-id="fire" class="icon mx-auto d-block" src="{% static 'image/fire.svg' %}"
-                    alt="fire"></div>
-            <div class="col-4"><img data-id="poop" class="icon mx-auto d-block" src="{% static 'image/poop.svg' %}"
-                    alt="shit"></div>
-            <div class="col-4"><img data-id="haha" class="icon mx-auto d-block" src="{% static 'image/haha.png' %}"
-                    alt="haha"></div>
+        <div class="row m-3 justify-content-between" data-imageid="{{img.id}}">
+            <div class="col-5">
+                <div class="row">
+                    <div class="col"><img data-id="fire" class="icon mx-auto d-block"
+                            src="{% static 'image/fire.svg' %}" alt="fire"></div>
+                    <div class="col"><img data-id="poop" class="icon mx-auto d-block"
+                            src="{% static 'image/poop.svg' %}" alt="shit"></div>
+                    <div class="col"><img data-id="haha" class="icon mx-auto d-block"
+                            src="{% static 'image/haha.png' %}" alt="haha"></div>
+                </div>
+            </div>
+            <div class="col-3 text-center">By : {{img.uploader|capfirst}}</div>
         </div>
         {% endif %}
     </div>

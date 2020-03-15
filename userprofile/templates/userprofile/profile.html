@@ -11,9 +11,10 @@ Profile
     @import url('https://fonts.googleapis.com/css?family=Spartan&display=swap');
     @import url('https://fonts.googleapis.com/css?family=Oxanium&display=swap');
     @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
     .container h1 {
         color: thistle;
-        font-family: 'Spartan' ;
+        font-family: 'Spartan';
     }
 
     img.myimg {
@@ -33,7 +34,7 @@ Profile
 
     h6#email {
         color: beige;
-        font-family: 'Oxanium' ;
+        font-family: 'Oxanium';
     }
 
     div#photo_head {
@@ -45,8 +46,9 @@ Profile
     hr.myHr {
         border: 1px solid white;
     }
-    h5#myCap{
-        font-family: 'Montserrat' ;
+
+    h5#myCap {
+        font-family: 'Montserrat';
     }
 </style>
 
@@ -70,14 +72,31 @@ Profile
     <hr class="myHr">
     <div class="img-container">
         <div class="row justify-content-center">
-            {% for img in imgs %}
-            <div class="card m-2 col-md-4 col-lg-3 p-2 border-dark" style="width: 10rem;">
-                <img class="card-img-top" src="{{img.image.url}}" alt="Card image cap" height="150px"
-                    style="border: 2px solid rgb(22, 97, 97);">
+            {% for img in img_list %}
+            <div class="card m-1 col-md-4 col-lg-3 border-dark" style="width: 10rem;">
                 <div class="card-body">
-                    <h5 id='myCap' class="card-text">{{img.caption}}</h5>
+                    <h5 id='myCap' class="card-text text-center">{{img.caption|capfirst}}</h5>
+                    <img class="card-img-top" src="{{img.url}}" alt="Card image cap" height="150px"
+                        style="border: 2px solid rgb(22, 97, 97);">
                 </div>
+
                 <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="row m-2">
+                            <div class="col"><img data-id="fire" class="icon" src="{% static 'image/fire.svg' %}"
+                                    alt="fire"><span class="ml-2">{{img.fireStat}}</span></div>
+                            <div class="col"><img data-id="poop" class="icon" src="{% static 'image/poop.svg' %}"
+                                    alt="shit"><span class="ml-2">{{img.poopStat}}</span></div>
+                            <div class="col"><img data-id="haha" class="icon" src="{% static 'image/haha.png' %}"
+                                    alt="haha"><span class="ml-2">{{img.hahaStat}}</span></div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        Rank : {{img.fireRank}}/ {{img.poopRank}}/ {{img.hahaRank}}
+                    </li>
+                </ul>
+
+                <!-- <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <img class="icon" src="{% static 'image/fire.svg' %}" alt="fire">
                         <span class="ml-4">{{img.fire_count.count}}</span>
@@ -90,7 +109,7 @@ Profile
                         <img class="icon" src="{% static 'image/haha.png' %}" alt="haha">
                         <span class="ml-4">{{img.haha_count.count}}</span>
                     </li>
-                </ul>
+                </ul> -->
             </div>
             {% endfor %}
         </div>

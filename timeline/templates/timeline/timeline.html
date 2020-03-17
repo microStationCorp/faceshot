@@ -40,12 +40,14 @@ Timeline
         <div class="row m-3 justify-content-between" data-imageid="{{img.id}}">
             <div class="col-5">
                 <div class="row">
-                    <div class="col"><img data-id="fire" class="icon mx-auto d-block"
+                    <div class="col-3"><img data-id="fire" class="icon mx-auto d-block"
                             src="{% static 'image/fire.svg' %}" alt="fire"></div>
-                    <div class="col"><img data-id="poop" class="icon mx-auto d-block"
+                    <div class="col-3"><img data-id="poop" class="icon mx-auto d-block"
                             src="{% static 'image/poop.svg' %}" alt="shit"></div>
-                    <div class="col"><img data-id="haha" class="icon mx-auto d-block"
+                    <div class="col-3"><img data-id="haha" class="icon mx-auto d-block"
                             src="{% static 'image/haha.png' %}" alt="haha"></div>
+                    <div class="col-3"><img data-id="noex" class="icon mx-auto d-block"
+                            src="{% static 'image/noex.png' %}" alt="noex"></div>
                 </div>
             </div>
             <div class="col-3 text-center">By : {{img.uploader|capfirst}}</div>

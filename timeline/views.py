@@ -14,7 +14,7 @@ from django.http import HttpResponse, JsonResponse
 def timelinepage(response):
     other_user_img = up.objects.exclude(
         Q(uploader__id=response.user.id) | Q(haha_count__id=response.user.id) | Q(fire_count__id=response.user.id) | Q(
-            poop_count__id=response.user.id)).filter(season=Seasons.objects.all().last()).order_by('dateOfPost')
+            poop_count__id=response.user.id)| Q(noex_count__id=response.user.id)).filter(season=Seasons.objects.all().last()).order_by('dateOfPost')
     if other_user_img.count() == 0:
         context = {
             'empty': True
@@ -45,9 +45,13 @@ def voted(response):
             reacted_img.poop_count.add(user)
             reacted_img.poopStat = reacted_img.poop_count.all().count()
             reacted_img.save()
+        elif response.POST['reaction'] == 'noex':
+            reacted_img.noex_count.add(user)
+            reacted_img.noexStat = reacted_img.noex_count.all().count()
+            reacted_img.save()
 
         other_user_img = up.objects.exclude(Q(uploader__id=response.user.id) | Q(haha_count__id=response.user.id) | Q(
-            fire_count__id=response.user.id) | Q(poop_count__id=response.user.id)).filter(season=Seasons.objects.all().last()).order_by('dateOfPost')
+            fire_count__id=response.user.id) | Q(poop_count__id=response.user.id)| Q(noex_count__id=response.user.id)).filter(season=Seasons.objects.all().last()).order_by('dateOfPost')
 
         if other_user_img.count() != 0:
             context = {

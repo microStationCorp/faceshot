@@ -27,6 +27,9 @@ class UploadedPhoto(models.Model):
         User, related_name="fire_count", blank=True)
     poop_count = models.ManyToManyField(
         User, related_name="poop_count", blank=True)
+    noex_count = models.ManyToManyField(
+        User, related_name="noex_count", blank=True)
     hahaStat = models.BigIntegerField(default=0)
     fireStat = models.BigIntegerField(default=0)
     poopStat = models.BigIntegerField(default=0)
+    noexStat = models.BigIntegerField(default=0)

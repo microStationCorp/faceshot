@@ -19,9 +19,11 @@ def userprofile(response):
             'hahaStat': img.hahaStat,
             'fireStat': img.fireStat,
             'poopStat': img.poopStat,
+            'noexStat': img.noexStat,
             'hahaRank': list(UploadedPhoto.objects.filter(season=Seasons.objects.all().last()).order_by('-hahaStat').values_list('id', flat=True)).index(img.id)+1,
             'fireRank': list(UploadedPhoto.objects.filter(season=Seasons.objects.all().last()).order_by('-fireStat').values_list('id', flat=True)).index(img.id)+1,
             'poopRank': list(UploadedPhoto.objects.filter(season=Seasons.objects.all().last()).order_by('-poopStat').values_list('id', flat=True)).index(img.id)+1,
+            'noexRank': list(UploadedPhoto.objects.filter(season=Seasons.objects.all().last()).order_by('-noexStat').values_list('id', flat=True)).index(img.id)+1,
         })
 
     return render(response, 'userprofile/profile.html', {'img_list': img_list})

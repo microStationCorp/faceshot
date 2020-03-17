@@ -24,12 +24,6 @@ Profile
     img.icon {
         width: 25px;
         height: 25px;
-        transition-duration: .3s;
-    }
-
-    img.icon:hover {
-        transform: scale(2);
-        cursor: pointer;
     }
 
     h6#email {
@@ -86,17 +80,27 @@ Profile
 
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <div class="row m-2">
-                            <div class="col"><img data-id="fire" class="icon" src="{% static 'image/fire.svg' %}"
-                                    alt="fire"><span class="ml-2">{{img.fireStat}}</span></div>
-                            <div class="col"><img data-id="poop" class="icon" src="{% static 'image/poop.svg' %}"
-                                    alt="shit"><span class="ml-2">{{img.poopStat}}</span></div>
-                            <div class="col"><img data-id="haha" class="icon" src="{% static 'image/haha.png' %}"
-                                    alt="haha"><span class="ml-2">{{img.hahaStat}}</span></div>
+                        <div class="row">
+                            <div class="col-3"><img data-id="fire" class="icon" src="{% static 'image/fire.svg' %}"
+                                    alt="fire"></div>
+                            <div class="col-3"><img data-id="poop" class="icon" src="{% static 'image/poop.svg' %}"
+                                    alt="shit"></div>
+                            <div class="col-3"><img data-id="haha" class="icon" src="{% static 'image/haha.png' %}"
+                                    alt="haha"></div>
+                            <div class="col-3"><img data-id="noex" class="icon" src="{% static 'image/noex.png' %}"
+                                    alt="noex"></div>
                         </div>
                     </li>
                     <li class="list-group-item">
-                        Rank : {{img.fireRank}}/ {{img.poopRank}}/ {{img.hahaRank}}
+                        <div class="row">
+                            <div class="col-3 text-center">{{img.fireStat}}</div>
+                            <div class="col-3 text-center">{{img.poopStat}}</div>
+                            <div class="col-3 text-center">{{img.hahaStat}}</div>
+                            <div class="col-3 text-center">{{img.noexStat}}</div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        Rank : {{img.fireRank}}/ {{img.poopRank}}/ {{img.hahaRank}}/ {{img.noexRank}}
                     </li>
                 </ul>
 

@@ -14,7 +14,9 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/55decd08f0.js" crossorigin="anonymous"></script>
     <style>
-       @import url('https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
         body {
             background: #ecf0f1;
         }
@@ -36,8 +38,23 @@
             position: relative;
             color: #4DCCFF;
             transition-duration: .4s;
-            font-family: 'Annie Use Your Telescope' ;
+            font-family: 'Annie Use Your Telescope';
             font-size: 4rem;
+        }
+
+        .timer {
+            background: aqua;
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            padding: 5px 10px;
+            border-radius: 10px;
+        }
+
+        .timer span {
+            font-family: 'Nova Square', cursive;
+            font-weight: bold;
+            color: #006969;
         }
     </style>
     {% block userprofilecss %}
@@ -90,6 +107,11 @@
         </div>
     </nav>
 
+    <div class="timer">
+        <span>Timer : <span id="day">0d</span> : <span id="hour">0h</span> : <span id="min">0m</span> : <span
+                id="sec">0s</span></span>
+    </div>
+
     {% block base %}
     {% endblock base %}
 
@@ -106,9 +128,8 @@
     <!-- timeline -->
     {% block timelinejs %}
     {% endblock timelinejs %}
-    <!-- poll -->
-    {% block polljs %}
-    {% endblock polljs %}
+    <!-- timer -->
+    <script src="{% static 'js/timer.js' %}"></script>
 </body>
 
 </html>

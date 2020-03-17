@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, JsonResponse
-from addphoto.models import UploadedPhoto
+from addphoto.models import UploadedPhoto, Seasons
 
 
 # Create your views here.
@@ -13,21 +13,21 @@ def poll(response):
     poopList = []
     fireList = []
 
-    for f in UploadedPhoto.objects.all().order_by('-hahaStat')[:10]:
+    for f in UploadedPhoto.objects.filter(season=Seasons.objects.all().last()).order_by('-hahaStat')[:10]:
         hahaList.append({
             'url': f.image.url,
             'count': f.haha_count.all().count(),
             'caption': f.caption,
             'uploader': f.uploader.username
         })
-    for f in UploadedPhoto.objects.all().order_by('-fireStat')[:10]:
+    for f in UploadedPhoto.objects.filter(season=Seasons.objects.all().last()).order_by('-fireStat')[:10]:
         fireList.append({
             'url': f.image.url,
             'count': f.fire_count.all().count(),
             'caption': f.caption,
             'uploader': f.uploader.username
         })
-    for f in UploadedPhoto.objects.all().order_by('-poopStat')[:10]:
+    for f in UploadedPhoto.objects.filter(season=Seasons.objects.all().last()).order_by('-poopStat')[:10]:
         poopList.append({
             'url': f.image.url,
             'count': f.poop_count.all().count(),
@@ -41,4 +41,3 @@ def poll(response):
         'fire': fireList
     }
     return render(response, 'poll/poll.html', context)
-
